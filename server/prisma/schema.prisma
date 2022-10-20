@@ -8,4 +8,48 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
+
+model User {
+  id              Int            @id @default(autoincrement())
+  username        String         @unique @db.VarChar(50)
+  password        String         @db.VarChar(250)
+  myShops         Shop[]         @relation("MyShops")
+  playerShops     Shop[]         @relation("PlayerShops")
+  myItems         Item[]         @relation("MyItems")
+  playerInventory Item[]         @relation("PlayerInventory")
+}
+
+model Shop {
+  id              Int            @id @default(autoincrement())
+  name            String         @db.VarChar(250)
+  image           String         @default("https://jacobscaifenextgen.files.wordpress.com/2016/03/shop_screenshot.png")
+  locations       Location[]
+  players         User[]         @relation("PlayerShops")
+  creator         User           @relation(name: "MyShops", fields: [userId], references: [id])       
+  userId          Int
+}
+
+model Item {
+  id              Int            @id @default(autoincrement())
+  name            String         @db.VarChar(250)
+  description     String
+  cost            Int
+  image           String         @default("https://jacobscaifenextgen.files.wordpress.com/2016/03/shop_screenshot.png")
+  locations       Location[]
+  players         User[]         @relation("PlayerInventory")
+  creator         User           @relation(name: "MyItems", fields: [userId], references: [id])       
+  userId          Int
+}
+
+model Location {
+  id              Int            @id @default(autoincrement())
+  top             Int
+  left            Int
+  shop            Shop           @relation(fields: [shopId], references: [id])       
+  shopId          Int
+  item            Item           @relation(fields: [itemId], references: [id])       
+  itemId          Int
+}
+

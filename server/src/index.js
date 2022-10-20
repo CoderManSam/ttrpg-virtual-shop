@@ -23,6 +23,7 @@ app.use('/shops', shopRouter)
 app.use('/item', itemRouter)
 app.use('/items', itemRouter)
 app.use('/location', locationRouter)
+app.use('/locations', locationRouter)
 app.use('/', authRouter)
 
 // app.get('*', (req, res) => {
