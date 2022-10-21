@@ -14,10 +14,3 @@ const STATUS_MESSAGES = {
       data: payload
     })
   }
-  
-  export function sendMessageResponse(res, statusCode, message) {
-    return res.status(statusCode).json({
-      status: STATUS_MESSAGES[statusCode],
-      message
-    })
-  }

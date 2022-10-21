@@ -1,6 +1,6 @@
 import dbClient from '../utils/dbClient.js'
 import bcrypt from 'bcrypt'
-import { sendDataResponse, sendMessageResponse } from '../utils/responses.js'
+import { sendDataResponse} from '../utils/responses.js'
 
 export const create = async (req, res) => {
     const {username, password} = req.body
@@ -31,6 +31,27 @@ export const create = async (req, res) => {
     }
 }
 
-export const findByUsername = async (req, res) => {
-
+export const getById = async (req, res) => {
+    const id = parseInt(req.params.id)
+  
+    try {
+      const foundUser = await dbClient.findUnique({
+        where: {
+            id: id
+        }
+      })
+  
+      if (!foundUser) {
+        return sendDataResponse(res, 404, { id: "A user with this id could not be found" })
+      }
+  
+      return sendDataResponse(res, 200, foundUser)
+    } catch (e) {
+        sendDataResponse(res, 400, {error: e})
+      throw e
+    }
 }
+
+// export const findByUsername = async (req, res) => {
+
+// }
