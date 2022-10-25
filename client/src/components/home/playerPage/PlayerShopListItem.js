@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-function ShopListItem({shop, username}) {
+function PlayerShopListItem({shop, username}) {
   return (
     <li>
             {/* <Link className="" to="/DM-shop" shopId={shop.id} username={username}> */}
-            <Link className="" to={{pathname: "/DM-shop", state: {shopId: shop.id, username: username}}}>
+            <Link className="" to={{pathname: "/player-shop", state: {shopId: shop.id, username: username}}}>
             <img src={shop.image} alt={`${shop.name} icon`} className="shop-list-item-icon"></img>
             <p>{shop.name}</p>
             </Link> 
@@ -15,4 +15,4 @@ function ShopListItem({shop, username}) {
   )
 }
 
-export default ShopListItem;
+export default PlayerShopListItem;

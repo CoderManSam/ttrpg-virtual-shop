@@ -36,3 +36,7 @@
   place-content: center;
   height: 50%;
 }
+
+.shop-list-item-icon {
+  height: 70px
+}

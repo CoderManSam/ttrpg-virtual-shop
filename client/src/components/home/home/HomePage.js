@@ -41,9 +41,9 @@ function HomePage() {
             <h3 onClick={() => setDmView(false)}>Player</h3>
         </nav>
         {dmView ?
-            (<DmPage />)
+            (<DmPage myShops={myShops} myItems={myItems} username={userData.username}/>)
             :
-            (<PlayerPage />)
+            (<PlayerPage playerShops={playerShops} playerItems={playerItems} username={userData.username}/>)
         }
     </>
   )

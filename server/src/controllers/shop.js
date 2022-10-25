@@ -15,6 +15,31 @@ export const create = async (req, res) => {
     return sendDataResponse(res, 201, { createdShop })
 } 
 
+export const getById = async (req, res) => {
+    const id = parseInt(req.params.id)
+  
+    try {
+      const foundShop = await dbClient.shop.findUnique({
+        where: {
+            id: id
+        },
+        include: {
+          locations: true,
+          players: true
+        }
+      })
+  
+      if (!foundShop) {
+        return sendDataResponse(res, 404, { id: "A shop with this id could not be found" })
+      }
+  
+      return sendDataResponse(res, 200, foundShop)
+    } catch (e) {
+        sendDataResponse(res, 400, {error: e})
+      throw e
+    }
+}
+
 export const getMyShops = async (req, res) => {
     const userId = req.user.id
 
