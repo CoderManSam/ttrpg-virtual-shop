@@ -20,7 +20,7 @@ function LoginPage() {
               res.data.data.token
             );
     
-            navigate('../../home/dmPage.js', {
+            navigate('../homepage', {
               replace: true,
             });
           })

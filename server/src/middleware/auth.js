@@ -34,9 +34,9 @@ export async function validateAuthentication(req, res, next) {
 
   const decodedToken = jwt.decode(token)
 
-  const foundUser = await dbClient.findUnique({
+  const foundUser = await dbClient.user.findUnique({
     where: {
-        id: decodedToken.id
+        id: decodedToken.userId
     }
   })
   delete foundUser.password

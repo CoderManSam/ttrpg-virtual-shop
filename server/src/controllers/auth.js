@@ -8,7 +8,7 @@ export const login = async (req, res) => {
 
   if (!username || !password) {
     return sendDataResponse(res, 400, {
-      email: 'Invalid email and/or password provided'
+      email: 'Invalid username and/or password provided'
     })
   }
 
@@ -22,7 +22,7 @@ export const login = async (req, res) => {
 
     if (!areCredentialsValid) {
       return sendDataResponse(res, 400, {
-        email: 'Invalid email and/or password provided'
+        email: 'Invalid username and/or password provided'
       })
     }
 

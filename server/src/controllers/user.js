@@ -24,7 +24,9 @@ export const create = async (req, res) => {
             password: hashedPassword
         }
       })
-      return sendDataResponse(res, 201, { createdUser })
+      const newUsername = createdUser.username
+
+      return sendDataResponse(res, 201, { newUsername })
     } catch (err) {
         console.error(err)
       throw err
@@ -32,14 +34,22 @@ export const create = async (req, res) => {
 }
 
 export const getById = async (req, res) => {
-    const id = parseInt(req.params.id)
+    const id = parseInt(req.user.id)
   
     try {
-      const foundUser = await dbClient.findUnique({
+      const foundUser = await dbClient.user.findUnique({
         where: {
             id: id
+        },
+        include: {
+          myShops: true,
+          playerShops: true,
+          myItems: true,
+          playerInventory: true,
         }
       })
+
+      delete foundUser.password
   
       if (!foundUser) {
         return sendDataResponse(res, 404, { id: "A user with this id could not be found" })

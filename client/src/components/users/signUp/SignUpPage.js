@@ -12,7 +12,7 @@ function SignUpPage() {
     let navigate = useNavigate();
   
     const login = () => {
-      navigate('../login/LoginPage.js', { replace: true });
+      navigate('../', { replace: true });
     };
   
     const registerUser = event => {

@@ -7,6 +7,10 @@
 .header {
   background-color: purple;
   height: 12%;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .header h2 {
@@ -21,6 +25,10 @@
 
 .indent-2 {
   margin-left: 2%;
+}
+
+.header-username {
+  padding: 2%;
 }
 
 .users-main {
