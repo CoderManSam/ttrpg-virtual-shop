@@ -5,12 +5,13 @@ import {
     getById,
     updatePlayerShops
 } from '../controllers/shop.js'
+import { validateAuthentication } from '../middleware/auth.js'
 
 const router = Router()
 
-router.post('/', create)
-router.get('/', getMyShops)
+router.post('/', validateAuthentication, create)
+router.get('/', validateAuthentication, getMyShops)
 router.get('/:id', getById)
-router.patch('/:id', updatePlayerShops)
+router.patch('/:id', validateAuthentication, updatePlayerShops)
 
 export default router

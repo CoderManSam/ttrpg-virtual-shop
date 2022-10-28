@@ -36,7 +36,7 @@ model Item {
   name            String         @db.VarChar(250)
   description     String
   cost            Int
-  image           String         @default("https://jacobscaifenextgen.files.wordpress.com/2016/03/shop_screenshot.png")
+  image           String         
   locations       Location[]
   players         User[]         @relation("PlayerInventory")
   creator         User           @relation(name: "MyItems", fields: [userId], references: [id])       
@@ -45,8 +45,8 @@ model Item {
 
 model Location {
   id              Int            @id @default(autoincrement())
-  top             Int
-  left            Int
+  top             String
+  left            String
   shop            Shop           @relation(fields: [shopId], references: [id])       
   shopId          Int
   item            Item           @relation(fields: [itemId], references: [id])       

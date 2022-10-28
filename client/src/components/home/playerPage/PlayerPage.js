@@ -6,14 +6,17 @@ import client from '../../../utils/client.js';
 import PlayerShopListItem from './PlayerShopListItem.js';
 import ItemListItem from '../dmPage/ItemListItem';
 
-function PlayerPage({playerShops, playerItems, username}) {
+function PlayerPage({playerShops, playerInventory, username}) {
+    const shopsArray = playerShops
+    const itemsArray = playerInventory
+
   return (
     <main className='home-main'>
         <div className='home-shops'>
             <h2>Player Shops</h2>
             {/* <ShopList myShops={myShops}/> */}
             <ul className="home-shops-list">
-                {playerShops.map((shop, index) => (
+                {shopsArray.map((shop, index) => (
                     <PlayerShopListItem
                         shop={shop}
                         key={index}
@@ -26,7 +29,7 @@ function PlayerPage({playerShops, playerItems, username}) {
             <h2>Player Inventory</h2>
             {/* <ItemList myItems={myItems}/> */}
             <ul className="home-items-list">
-                {playerItems.map((item, index) => (
+                {itemsArray.map((item, index) => (
                     <ItemListItem
                         item={item}
                         key={index}

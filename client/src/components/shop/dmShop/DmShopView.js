@@ -1,9 +1,8 @@
-import { useState } from 'react';
-
-function DmShopView({image, locations, setLocations}) {
+function DmShopView({image}) {
   return (
     <>
-        <img src={image}></img>
+        <img src={image} className="dmshop-view-image"></img>
+        {/* <img src={image} className='dmshop-view'></img> */}
     </>
   )
 }

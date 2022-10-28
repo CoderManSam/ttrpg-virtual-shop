@@ -2,13 +2,17 @@ import { Router } from 'express'
 import {
     create,
     getMyitems,
-    // getById
+    getById,
+    updatePlayerInventory
 } from '../controllers/item.js'
+import { validateAuthentication } from '../middleware/auth.js'
+
 
 const router = Router()
 
-router.post('/', create)
-router.get('/', getMyitems)
-// router.get('/:id', getById)
+router.post('/', validateAuthentication, create)
+router.get('/', validateAuthentication, getMyitems)
+router.get('/:id', validateAuthentication, getById)
+router.patch('/:id', validateAuthentication, updatePlayerInventory)
 
 export default router

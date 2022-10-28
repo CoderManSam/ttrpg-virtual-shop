@@ -4,7 +4,7 @@ function Header() {
             <h2>
                 TTRPG <br></br>
                 <span className="indent-1">Virtual <br></br></span>
-                <span className="indent-2">Store</span>
+                <span className="indent-2">Shop</span>
             </h2>
         </header>
     )
