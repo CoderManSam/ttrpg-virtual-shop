@@ -20,27 +20,27 @@ This app uses React for the frontend and NodeJS, express, postgreSQL, and prisma
 
 ### Homepage
 
--Has the option to swap between DM and player view top left below the header
--Displays either the shops and items you've created as a DM(Dungeon Master), or the shops you've been granted access to as a player as well as the items you've purchased from those shops
--Clicking the plus icon beside either of the headers opens up a form to add the details to create a new shop or item which will then appear in the relevant sections of the page
--Clicking an item on either the DM or player view will display the item's information below it
--Clicking a shop on either the DM or player view will take you to the page for that shop (the shop page displayed will be different if accessed as a DM or player)
+- Has the option to swap between DM and player view top left below the header
+- Displays either the shops and items you've created as a DM(Dungeon Master), or the shops you've been granted access to as a player as well as the items you've purchased from those shops
+- Clicking the plus icon beside either of the headers opens up a form to add the details to create a new shop or item which will then appear in the relevant sections of the page
+- Clicking an item on either the DM or player view will display the item's information below it
+- Clicking a shop on either the DM or player view will take you to the page for that shop (the shop page displayed will be different if accessed as a DM or player)
 
 ### Shop (DM view)
 
--The page will display the image used as the background of the shop as well as a section to the right with all items you've created as a DM
--The DM version of the shop will have a clickable element in the header opening a form to add the usernames of players that you wish to grant access to the shop to
--The items on the page can be dragged to anywhere within the shop to allocate where they would be positioned within the shop
--Once all items you wish to be displayed in your shop have been moved to their correct position you can click the "save positions" element at the top to save the position of the items to the db (if not clicked the item positions will reset)
--Items can be double clicked to open a window with that item's information
+- The page will display the image used as the background of the shop as well as a section to the right with all items you've created as a DM
+- The DM version of the shop will have a clickable element in the header opening a form to add the usernames of players that you wish to grant access to the shop to
+- The items on the page can be dragged to anywhere within the shop to allocate where they would be positioned within the shop
+- Once all items you wish to be displayed in your shop have been moved to their correct position you can click the "save positions" element at the top to save the position of the items to the db (if not clicked the item positions will reset)
+- Items can be double clicked to open a window with that item's information
 
 ### Shop (Player view)
 
--The player will have a Cart section to the right in place of the DM's item section (cart section currently WIP)
--The shop will be displayed with the same background image and any items the DM has allocated a position to
--Players are unable to drag the items around but are able to click them to view their information
--Upon vieiwing an item's information they are also able to purchase the item which will cause it to leave the shop and be added to their player inventory
--The player can then go back to the homepage and within the player inventory section the item purchased will now be visible 
+- The player will have a Cart section to the right in place of the DM's item section (cart section currently WIP)
+- The shop will be displayed with the same background image and any items the DM has allocated a position to
+- Players are unable to drag the items around but are able to click them to view their information
+- Upon vieiwing an item's information they are also able to purchase the item which will cause it to leave the shop and be added to their player inventory
+- The player can then go back to the homepage and within the player inventory section the item purchased will now be visible 
 
 ## Development Process
 
